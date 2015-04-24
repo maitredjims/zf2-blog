@@ -1,0 +1,17 @@
+<?php
+$title = 'Blog';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('blog/add', array('action'=>'add'));?>">Add new post</a>
+</p>
+<?php foreach ($this->posts as $post): ?>
+<article>
+    <h2 id="post<?php echo $post->getId(); ?>"><a href="<?php echo $this->url('blog/detail', array('action' => 'detail', 'id' => $post->getId())); ?>"><?php echo $post->getTitle(); ?></a></h2>
+    <p>
+        <?php echo $post->getText(); ?>
+    </p>
+    <p><a href="<?php echo $this->url('blog/edit', array('action' => 'edit', 'id' => $post->getId())); ?>">Edit</a> | <a href="<?php echo $this->url('blog/delete', array('action' => 'delete', 'id' => $post->getId())); ?>">Delete</a></p>
+</article>
+<?php endforeach; ?>

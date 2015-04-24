@@ -1,0 +1,14 @@
+<?php
+$title = 'Blog - Delete Post';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    Are you sure tha you want to delete
+    '<?php echo $this->escapeHtml($this->post->getTitle()); ?>' by
+    '<?php echo $this->escapeHtml($this->post->getText()); ?>'
+</p>
+<form action="<?php echo $this->url('blog/delete', array(), true) ?>" method="post">
+    <input type="submit" name="delete_confirmation" value="yes">
+    <input type="submit" name="delete_confirmation" value="no">
+</form>

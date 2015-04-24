@@ -1,0 +1,17 @@
+<?php
+$title = 'Blog - Edit Post';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<br>
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('blog/edit', array(), TRUE));
+$form->prepare();
+
+
+$form->get('submit')->setValue('Update Post');
+
+echo $this->form()->openTag($form);
+echo $this->formCollection($form);
+echo $this->form()->closeTag();
